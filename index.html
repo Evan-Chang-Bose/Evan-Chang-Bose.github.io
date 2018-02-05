@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<style>
+.slider {
+	margin-top: 100px;
+	-webkit-transform: rotate(270deg);
+	opacity: .5;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+.slider:hover {
+	opacity: 1;
+}
+.label {
+	margin-top: 200px;
+	border-top: 10px solid indianred;
+	background-color: salmon;
+	height: 50px;
+}
+</style>
+
+<div>
+	<input type="range" orient="vertical" min = "1" max="255" value="128" class="slider" id="slider1">
+	<input type="range" orient="vertical" min = "1" max="255" value="128" class="slider" id="slider2">
+	<input type="range" orient="vertical" min = "1" max="255" value="128" class="slider" id="slider3">
+</div>
+
+<div>
+	<p class="label" 
+	style="font-family: Comic Sans MS; font-size: 200%;">
+	RGB Values:
+	<span id="label"> </span>
+</p>
+</div>
+
+<script>
+	var slider1Val = document.getElementById("slider1");
+	var slider2Val = document.getElementById("slider2");
+	var slider3Val = document.getElementById("slider3");
+	var output = document.getElementById("label");
+	output.innerHTML =  "(" + slider1.value + ", " + slider2.value + ", " + slider3.value + ")";
+
+	slider1.oninput = function() {
+		output.innerHTML = "(" + slider1.value + ", " + slider2.value + ", " + slider3.value + ")";
+		setColor(parseInt(slider1.value), parseInt(slider2.value), parseInt(slider3.value));
+	}
+
+	slider2.oninput = function() {
+		output.innerHTML = "(" + slider1.value + ", " + slider2.value + ", " + slider3.value + ")";
+		setColor(parseInt(slider1.value), parseInt(slider2.value), parseInt(slider3.value));
+	}
+
+	slider3.oninput = function() {
+		output.innerHTML = "(" + slider1.value + ", " + slider2.value + ", " + slider3.value + ")";
+		setColor(parseInt(slider1.value), parseInt(slider2.value), parseInt(slider3.value));
+	}
+
+	function setColor(r, g, b) {
+		document.body.style.backgroundColor = "rgb("+ r + "," + g + "," + b +")";
+	}
+</script>
+
+
+</html>
